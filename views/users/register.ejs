@@ -1,0 +1,39 @@
+<% layout('layouts/boilerplate') %>
+    <div class="container d-flex justify-content-center align-items-center mt-2"> 
+        <!-- d-flex -->
+        <div class="row">
+            <div class="col-md-6 offset-md-3 col-xl-4 offset-xl-4">
+                <div class="card shadow">
+                    <img src="https://images.unsplash.com/photo-1487730116645-74489c95b41b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80" alt="" class="card-img-top">
+                   <div class="card-body">
+                    <h5 class="card-title">Register</h5>
+                    <form action="/register" class="validated-form" method="post" novalidate>
+                        <div class="mb-3">
+                            <label class="form-label" for="username">Username</label>
+                            <input class="form-control" type="text" name="username" required id="username" autofocus>
+                            <div class="valid-feedback">
+                                Looks Good!
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="email">E-mail</label>
+                                <input class="form-control" type="email" name="email" required id="email">
+                                <div class="valid-feedback">
+                                    Looks Good!
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label" for="password">Password</label>
+                                    <input class="form-control" type="password" name="password" required id="password">
+                                    <div class="valid-feedback">
+                                        Looks Good!
+                                    </div>
+                                    <div class="d-grid">
+                                        <button class="btn btn-success mt-2">Register</button>
+                                    </div>
+                                    
+                    </form>
+                   </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    
