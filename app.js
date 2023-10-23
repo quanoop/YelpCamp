@@ -15,7 +15,7 @@ const LocalStrategy = require('passport-local');
 const User = require('./models/user');
 const mongoSanitize = require('express-mongo-sanitize');
 const helmet = require('helmet');
-const dbUrl = process.env.DB_URL || 'mongodb://localhost:27017/yelp-camp';
+const dbUrl = 'mongodb://localhost:27017/yelp-camp';
 // const dbUrl = 'mongodb://localhost:27017/yelp-camp';
 const MongoStore = require('connect-mongo');
 
@@ -51,19 +51,19 @@ app.use(mongoSanitize({
 const secret = process.env.SECRET || 'thisshouldbeabetterrsecret';
 
 const store = new MongoStore({
-    mongoUrl : dbUrl,
+    mongoUrl: dbUrl,
     secret,
     touchAfter: 24 * 3600
 
 });
 
-store.on("error", function(e){
+store.on("error", function (e) {
     console.log("Session Store ERROR!")
 })
 
 const sessionConfig = {
     store,
-    name : 'session',
+    name: 'session',
     secret,
     resave: false,
     saveUninitialized: true,
@@ -78,10 +78,10 @@ app.use(session(sessionConfig));
 app.use(flash());
 app.use(
     helmet({
-      contentSecurityPolicy: false,
-      crossOriginEmbedderPolicy: false
+        contentSecurityPolicy: false,
+        crossOriginEmbedderPolicy: false
     })
-  );
+);
 app.use(passport.initialize());
 app.use(passport.session());
 passport.use(new LocalStrategy(User.authenticate()));
@@ -119,7 +119,7 @@ app.use((err, req, res, next) => {
     if (!err.message) err.message = "Something went wrong";
     res.status(statusCode).render('error', { err });
 });
-const port = process.env.PORT || 3000;
+const port = 3000;
 app.listen(port, () => {
-    console.log(" Listening to port");
+    console.log(" Listening to port 3000");
 });
